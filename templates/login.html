@@ -1,0 +1,333 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+    <head>
+        <title>歡迎使用 VMware Cloud Director</title>
+        <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtEAQAAADAg/ZSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAFoAAABaAHAjuH0AAAAHdElNRQfhBhwNKiGvmTAlAAACnklEQVRYw+2YX0hTYRjGf54s6caahWZddBFIlFFGRIFJLSUItKumhFIWSa2sIExGZMmioqAQhSjDjBEKiRdRrpAdklCxgjLMixFlkJNCSSxnaWkXuzh+njP/TNyO8D03e9/n+fbtt8PLds4XBWCzkQ45SXA4CTJOY0o1lkGVF2q9UQFgjwOs1khjTU+qqgSu8HwBBrBalcBIzC9F2WxjY5GGmKmUSANIaDNLQktoCW0CSWgJHSp00gDYKyErGhZcDL4uNg2yCuBYMWQ3w+qDWrbkAOyKAftyOF4J21th4Y1AFp0AG4ogdxQK2yFzByzLmxo66A1T/FYoP6v1bjtU9+nXbWoDR5febz4KPjfs/2r8wRfywOkyzu68BfVaCNDrFSipEb38E+Dv1fq4FXC7bOorE4qKO6Gr1DgLOh4fB/Ve6guxz+6fG2CA7EnGMSj0n8Xg6hG9Ix9AuRKoY/2w84GYX8/U7/PwG+RuhDNb9JkvEfK/wCEnfL4lZpsfAakzhAZQDZ5pkvcFXjNa9VnnPb3X3AQja6FnDfQWiVlDCvjPwVAHeBoNAFJCgPbvhbrzopcfDTH1YOsV/bIwPv9M+Tv9rEXsV76DbSf1615dNhH0z3h46hQ9+4T5u5sKfztMBA3wuGDy/GVd+ICnDd1/CtQgmUuB4TCfSU373qOu2tj3WLR6zKLPR/do9e8J33zEodX/1hls/n6W0H1uqJjwl3ypAIbSx0HlQcNNrW/7BD/Gjdb9BPH9b3K0+vVuMau4CjQZs8z4sGZpOcSlwfdS+FVvvCbRDUoJdA8D7WIWWwOWZPA5YOSJmC0qhFWDMPAc+rqDM8gTJgktoU0gCS2hJbQJJKHDCN04RycXcwpd5Y00RAjQtV5Q1dlvFS6p6n+o/qv81pcLxAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wNi0yOFQxMzo0MjozMy0wNDowMFfmIicAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDYtMjhUMTM6NDI6MzMtMDQ6MDAmu5qbAAAAGXRFWHRzdmc6dGl0bGUAQXJ0Ym9hcmQgNCBjb3B5H4jUewAAAABJRU5ErkJggg==">
+
+        <!--
+            By default IE forces intranet sites to use compatibility mode.
+            When the browser is in compatibility mode our application fails to load.
+            The tag below forces IE to use the highest standards mode allowing our app to load on our intranet.
+            -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+
+        
+            
+            
+            
+                <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet" id="theme-default">
+            
+        
+
+        <style>
+            #blankCanvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                z-index: 10;
+            }
+
+            .org-branding-wrapper {
+                display: flex;
+                align-items: flex-start;
+            }
+
+            .org-branding-wrapper .logo {
+                flex: none;
+                margin-right: 11px;
+                height: 1.5rem;
+                width: auto;
+                max-width: 300px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="blankCanvas"></div>
+        <div class="content-container">
+            <div class="content-area">
+                <div class="login-wrapper">
+                    <vcd-login-view>
+                        <form id="login-form" class="login" novalidate="" action="/esxi/auth.aspx" method="POST">
+                            <div id="serviceLoginForms">
+                                <section class="title">
+                                    
+                                    <h3 class="welcome">歡迎使用</h3>
+                                    <div class="org-branding-wrapper">
+                                        <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtEAQAAADAg/ZSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAFoAAABaAHAjuH0AAAAHdElNRQfhBhwNKiGvmTAlAAACnklEQVRYw+2YX0hTYRjGf54s6caahWZddBFIlFFGRIFJLSUItKumhFIWSa2sIExGZMmioqAQhSjDjBEKiRdRrpAdklCxgjLMixFlkJNCSSxnaWkXuzh+njP/TNyO8D03e9/n+fbtt8PLds4XBWCzkQ45SXA4CTJOY0o1lkGVF2q9UQFgjwOs1khjTU+qqgSu8HwBBrBalcBIzC9F2WxjY5GGmKmUSANIaDNLQktoCW0CSWgJHSp00gDYKyErGhZcDL4uNg2yCuBYMWQ3w+qDWrbkAOyKAftyOF4J21th4Y1AFp0AG4ogdxQK2yFzByzLmxo66A1T/FYoP6v1bjtU9+nXbWoDR5febz4KPjfs/2r8wRfywOkyzu68BfVaCNDrFSipEb38E+Dv1fq4FXC7bOorE4qKO6Gr1DgLOh4fB/Ve6guxz+6fG2CA7EnGMSj0n8Xg6hG9Ix9AuRKoY/2w84GYX8/U7/PwG+RuhDNb9JkvEfK/wCEnfL4lZpsfAakzhAZQDZ5pkvcFXjNa9VnnPb3X3AQja6FnDfQWiVlDCvjPwVAHeBoNAFJCgPbvhbrzopcfDTH1YOsV/bIwPv9M+Tv9rEXsV76DbSf1615dNhH0z3h46hQ9+4T5u5sKfztMBA3wuGDy/GVd+ICnDd1/CtQgmUuB4TCfSU373qOu2tj3WLR6zKLPR/do9e8J33zEodX/1hls/n6W0H1uqJjwl3ypAIbSx0HlQcNNrW/7BD/Gjdb9BPH9b3K0+vVuMau4CjQZs8z4sGZpOcSlwfdS+FVvvCbRDUoJdA8D7WIWWwOWZPA5YOSJmC0qhFWDMPAc+rqDM8gTJgktoU0gCS2hJbQJJKHDCN04RycXcwpd5Y00RAjQtV5Q1dlvFS6p6n+o/qv81pcLxAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wNi0yOFQxMzo0MjozMy0wNDowMFfmIicAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDYtMjhUMTM6NDI6MzMtMDQ6MDAmu5qbAAAAGXRFWHRzdmc6dGl0bGUAQXJ0Ym9hcmQgNCBjb3B5H4jUewAAAABJRU5ErkJggg==">
+                                        VMware Cloud Director
+                                    </div>
+                                    <h5 class="hint">使用您的使用者名稱以登入</h5>
+                                </section>
+                                <div class="login-group" >
+                                    <input id="usernameInput" name="username" class="username" placeholder="使用者名稱:" type="text">
+
+                                    <input id="passwordInput" name="password" class="password" placeholder="密碼:" type="password">
+
+                                    <div id="normalError" class="error active error-login"  style="display: none;">
+                                        驗證錯誤
+                                    </div>
+
+                                    <div id="lockoutError" class="error active error-login"  style="display: none;">
+                                        目前使用者已鎖定。請連絡您的管理員。
+                                    </div>
+
+                                    <button id="loginButton" class="btn btn-primary" type="submit">
+                                        登入
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="noServiceError" style="display: none;">
+                                <section class="title">
+                                    <h3 class="welcome">歡迎使用</h3>
+                                    VMware Cloud Director
+                                    <h5 class="hint">使用您的組織名稱以繼續</h5>
+                                </section>
+                                <div class="login-group">
+                                    <input id="tenantName" class="username" placeholder="組織名稱" type="text">
+                                    <button id="gotoTenantButton" class="btn btn-primary" type="submit">
+                                            下一步
+                                    </button>
+                                    <div id="tenantError" class="error active error-login"  style="display: none;">
+                                        承租人名稱為必填
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </vcd-login-view>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // function to disable and enable
+            function disable(elemId) {
+                var elem = document.getElementById(elemId);
+                if (elem) {
+                    elem.disabled = true;
+                }
+            }
+
+            function enable(elemId) {
+                var elem = document.getElementById(elemId);
+                if (elem) {
+                    elem.disabled = false;
+                }
+            }
+
+            // function to check disable and enable
+            function isDisabled(elemId) {
+                var elem = document.getElementById(elemId);
+                if (elem) {
+                    return elem.disabled || false;
+                }
+                return true;
+            }
+
+            // function to hide
+            function hide(elemId) {
+                var elem = document.getElementById(elemId);
+                if (elem) {
+                    elem.style.display = 'none';
+                }
+            }
+
+            function show(elemId) {
+                var elem = document.getElementById(elemId);
+                if (elem) {
+                    elem.style.display = '';
+                }
+            }
+
+
+            function loginClicked() {
+                if (isDisabled('loginButton')) {
+                    return false;
+                }
+
+                var username = document.getElementById('usernameInput').value;
+                var password = document.getElementById('passwordInput').value;
+                disable('usernameInput');
+                disable('passwordInput');
+                disable('loginButton');
+                hide('normalError');
+                hide('lockoutError');
+
+                var req = new XMLHttpRequest();
+                req.addEventListener("load", handleSuccess);
+                req.addEventListener("error", handleError);
+
+                var path = "/cloudapi/1.0.0/sessions";
+                var org = "@";
+                if (false) {
+                  path += "/provider";
+                  org += "System";
+                } else {
+                  var tokens = "tenant:ghfdg".split(":");
+                  // If service is invalid (and thus length is anything other than 2)
+                  // the user couldn't possibly have a successfull login, so no need
+                  // to explicitely handle that.
+                  if (tokens.length == 2) {
+                    org += tokens[1];
+                  }
+                }
+                username += org;
+                var basicAuth = safeBtoa(username + ":" + password);
+                req.open("POST", path, true);
+                req.setRequestHeader("Accept", "application/json;version=34.0");
+                req.setRequestHeader("Content-type", "application/json;version=34.0");
+                req.setRequestHeader("Authorization", "Basic " + basicAuth);
+                req.send();
+                return false;
+            }
+
+            // Escapes the string before encoding it via Window#btoa to safely handle the full range of unicode.
+            // See https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
+            function safeBtoa(str) {
+				return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+					function toSolidBytes(match, p1) { return String.fromCharCode('0x' + p1); }));
+            }
+
+            function handleSuccess(e) {
+                if (e.target.status == 200) {
+                    redirectOrReload();
+                } else {
+                    handleError(e);
+                }
+            }
+
+            function handleError(e) {
+                if (e.target.responseText && e.target.responseText.indexOf('(lockout)') > -1  ) {
+                    hide("normalError");
+                    show("lockoutError");
+                } else {
+                    show("normalError");
+                    hide("lockoutError");
+                }
+                document.getElementById("passwordInput").value = "";
+                enable('usernameInput');
+                enable('passwordInput');
+                handleLoginEnable();
+            }
+
+            function handleLoginEnable() {
+                if (document.getElementById('usernameInput').value != ""
+                    && document.getElementById("passwordInput").value != ""
+                    && true) {
+                    enable('loginButton');
+                } else {
+                    disable('loginButton');
+                }
+
+                if (false) {
+                    hide('serviceLoginForms');
+                    show('noServiceError');
+                }
+            }
+
+            function onPageLoad() {
+                setSessionCookie();
+                
+                disable('loginButton');
+
+                document.getElementById('usernameInput').oninput = function(event) {
+                    handleLoginEnable();
+                };
+                document.getElementById('passwordInput').oninput = function(event) {
+                    handleLoginEnable();
+                };
+                document.getElementById('tenantName').onkeydown = function(event) {
+                    if (event.keyCode == '13') {
+                        redirectToTenant();
+                    }
+                };
+
+                // Submit the form when ENTER is pressed.
+                document.getElementById('tenantName').onkeyup = function(event) {
+                    if(event.keyCode == '13') {
+                        onSubmit();
+                    }
+                };
+
+                handleLoginEnable();
+                hide('blankCanvas');
+
+                // Focus tenant or username input. timeout is requied as the dom is not rendered and focus is not set whitout the timeout
+                window.setTimeout(function() {
+                    if (false) {
+                        document.getElementById("tenantName").focus();
+                    } else {
+                        document.getElementById("usernameInput").focus();
+                    }
+                }, 150);
+
+            }
+
+            function setSessionCookie() {
+                var matches = window.location.hash.match(/#vcloud_jwt=[^\/]+/g);
+                if (matches !== null) {
+                    document.cookie = matches[0].replace('#', '') + '; path=/; Secure';
+                    redirectOrReload();
+                }
+            }
+
+            function redirectOrReload() {
+                
+                
+                    
+                        window.location.replace('\/tenant\/ghfdg');
+                    
+                    
+                
+            }
+
+            function onSubmit() {
+                if (false) {
+                    return redirectToTenant();
+                } else {
+                    return loginClicked();
+                }
+            }
+
+            function redirectToTenant() {
+                var tenantName = document.getElementById('tenantName').value
+                if (tenantName != null && tenantName.trim() != '') {
+                    window.location.replace('/tenant/' + tenantName);
+                    return false;
+                } else {
+                    show('tenantError');
+                    return false;
+                }
+            }
+
+            window.onload = onPageLoad;
+        </script>
+
+        <script src="js/inline.bundle.js?t=16779297"></script>
+    </body>
+</html>
